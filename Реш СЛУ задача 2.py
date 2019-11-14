@@ -21,7 +21,7 @@ def gauss_app(C, t):
 
 def LU_part(A):
 
-	A=np.array(A,float)
+	A = np.array(A,float)
 
 	for k in range(0,len(A)-1,1):
 		piv[k] = list(A[k:,k]).index(max(A[k:,k]))
@@ -52,7 +52,7 @@ def LU_solve(A,b):
 
     for j in range(0,len(A)-1,1):
         ch1[:] = E[j][j,:]
-        E[j][j,:] =E [j][int(piv[j]),:]
+        E[j][j,:] = E [j][int(piv[j]),:]
         E[j][int(piv[j]),:] = ch1[:]
 
     for k in range(1,len(A)):
@@ -71,7 +71,9 @@ def LU_solve(A,b):
     r = np.zeros(len(A),float)
 
     for i in range (len(A),0,-1):
+
         temp = 0
+
         for j in range (i,len(A),1):
             temp = temp + U[i-1,j]*r[j]
         r[i-1] = (y[i-1]-temp)/U[i-1,i-1]
