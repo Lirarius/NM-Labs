@@ -3,6 +3,7 @@
 import numpy as np
 
 def seidel(A, b, eps):
+    
     x = np.array([0] * len(b))
     U = np.triu(A, k = 1)
     L = np.tril(A, k = -1)
@@ -22,5 +23,6 @@ def seidel(A, b, eps):
 A = np.array([[1, 0.3, 0.1], [0.2, 1, 0.1], [0.05, 0.05, 1]])
 b = np.array([1, 1, 1])
 x = seidel(A, b, 1e-9)
+
 print("solution:", x)
 print("check: ||A x - b|| =", np.linalg.norm(np.dot(A, x) - b))
